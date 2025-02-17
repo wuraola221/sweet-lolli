@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Contact</title>
+</head>
+<body>
+
+    <form action="submit_form.php" method="post" class="form-1">
+        <h2>Contact Us</h2>
+        <div class="separator"></div>
+      
+        <label for="full_name" class="group">Full Name *</label>
+        <div class="name-fields">
+          <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+        </div>
+      
+        <label for="email" class="group">E-mail *</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com" required>
+      
+        <label for="message" class="group">Message *</label>
+        <textarea id="message" name="message" required></textarea>
+      
+        <button type="submit" class="btn-primary">Submit</button>
+    </form>
+    <div class="home-btn">
+        <a href="index.html" class="btn-primary">Back To Home</a>
+    </div>
+</body>
+</html>

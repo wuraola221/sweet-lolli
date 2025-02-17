@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Admin - Order Details</title>
+ <style>
+   table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+   th, td {
+     border: 1px solid #ddd;
+     padding: 8px;
+   }
+   th {
+     background-color: #f2f2f2;
+   }
+ </style>
+</head>
+<body>
+ <div>
+   <h1>Order Details</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>Email</th>
+         <th>Amount</th>
+         <th>Reference</th>
+         <th>Items</th>
+         <th>Shipping</th>
+       </tr>
+     </thead>
+     <tbody id="order-details">
+       <!-- Order details will be inserted here -->
+     </tbody>
+   </table>
+ </div>
+
+ <script>
+   fetch('/api/orders')
+     .then(response => response.json())
+     .then(orders => {
+       const orderDetailsElement = document.getElementById('order-details');
+       orders.forEach(order => {
+         const row = document.createElement('tr');
+         row.innerHTML = `
+           <td>${order.email}</td>
+           <td>${order.amount}</td>
+           <td>${order.reference}</td>
+           <td>${order.items.map(item => `Product ID: ${item.productId}, Quantity: ${item.quantity}, Price: ${item.priceCents}`).join('<br>')}</td>
+           <td>${order.shipping}</td>
+         `;
+         orderDetailsElement.appendChild(row);
+       });
+     })
+     .catch(error => console.error('Error fetching order details:', error));
+ </script>
+</body>
+</html>
