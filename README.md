@@ -17,7 +17,7 @@ To install Sweet Lolli, follow these steps:
 
 Clone the repository:
 Code
-git clone https://github.com/Waydedd/sweet-lolli.git
+git clone : https://github.com/wuraola221/sweet-lolli.git
 Navigate to the project directory:
 Code
 cd sweet-lolli
